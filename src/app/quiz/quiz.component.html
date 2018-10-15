@@ -1,3 +1,7 @@
-<p>
-  quiz works!
-</p>
+<app-score></app-score>
+<div>
+  <app-question-box
+    *ngFor='let question of questions'
+    [question]='question'>
+  </app-question-box>
+</div>

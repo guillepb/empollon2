@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit } from '@angular/core';
+import { Answer } from '../answer.model';
 
 @Component({
   selector: 'app-answer-row',
@@ -6,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./answer-row.component.css']
 })
 export class AnswerRowComponent implements OnInit {
+  @Input() answer: Answer;
 
   constructor() { }
 

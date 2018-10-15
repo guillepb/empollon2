@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit } from '@angular/core';
+
+import { Question } from '../question.model';
 
 @Component({
   selector: 'app-quiz',
@@ -6,6 +11,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./quiz.component.css']
 })
 export class QuizComponent implements OnInit {
+
+  @Input() questions: Question[];
 
   constructor() { }
 
