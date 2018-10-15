@@ -1,5 +1,6 @@
 export class Answer {
-    constructor () {
-
-    }
+    constructor (
+        public text: string,
+        public isCorrect: boolean
+    ) {}
 }
