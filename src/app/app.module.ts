@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {SuiModule} from 'ng2-semantic-ui';
 
 import { AppComponent } from './app.component';
 import { SetFormComponent } from './set-form/set-form.component';
@@ -18,7 +19,8 @@ import { AnswerRowComponent } from './answer-row/answer-row.component';
     AnswerRowComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    SuiModule
   ],
   providers: [],
   bootstrap: [AppComponent]

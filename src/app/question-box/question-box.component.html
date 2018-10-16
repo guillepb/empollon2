@@ -1,6 +1,5 @@
-
-{{ question.text }} | {{question.isAnswered}}
 <div>
+<p>{{ question.text }} | {{question.isAnswered}}</p>
   <app-answer-row
     *ngFor='let answer of question.answers'
     [answer]='answer'

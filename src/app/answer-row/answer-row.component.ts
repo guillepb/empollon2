@@ -1,6 +1,7 @@
 import {
   Component,
   Input,
+  HostBinding,
   OnInit } from '@angular/core';
 import { Answer } from '../answer.model';
 
@@ -11,6 +12,7 @@ import { Answer } from '../answer.model';
 })
 export class AnswerRowComponent implements OnInit {
   @Input() answer: Answer;
+//  @HostBinding('attr.class') cssClass = 'ui segment';
 
   constructor() { }
 
