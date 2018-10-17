@@ -14,7 +14,7 @@ import { Question } from '../question.model';
 export class QuestionBoxComponent implements OnInit {
 
   @Input() question: Question;
-//  @HostBinding('attr.class') cssClass = 'ui segment';
+  @HostBinding('attr.class') cssClass = 'ui segment';
 
   constructor() { }
 
