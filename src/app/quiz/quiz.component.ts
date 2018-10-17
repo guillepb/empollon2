@@ -13,6 +13,8 @@ import { Question } from '../question.model';
 export class QuizComponent implements OnInit {
 
   @Input() questions: Question[];
+  score: number;
+  answeredQuestions: number;
 
   constructor() { }
 

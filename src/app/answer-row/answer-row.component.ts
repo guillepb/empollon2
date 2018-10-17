@@ -2,7 +2,8 @@ import {
   Component,
   Input,
   OnInit,
-  HostBinding} from '@angular/core';
+  HostBinding,
+  Host} from '@angular/core';
 import { Answer } from '../answer.model';
 
 @Component({

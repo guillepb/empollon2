@@ -1,8 +1,13 @@
 
-<div class="ui top attached message">{{ question.text }} | {{question.isAnswered}}</div>
+<div class="ui top attached message">{{ question.text }}</div>
 <app-answer-row
   *ngFor='let answer of question.answers'
   [answer]='answer'
-  (click)='question.isAnswered=true'>
+  (click)='verifyAnswer(answer)'
+  [class.inverted] = "(question.isAnswered && answer.isCorrect) || ((selectedAnswer == answer) && question.isAnswered && !answer.isCorrect)"
+  [class.tertiary] = "(question.isAnswered && answer.isCorrect) || ((selectedAnswer == answer) && question.isAnswered && !answer.isCorrect)"
+  [class.olive] = "question.isAnswered && answer.isCorrect"
+  [class.orange] = "(selectedAnswer == answer) && question.isAnswered && !answer.isCorrect"
+>
 </app-answer-row>
 
