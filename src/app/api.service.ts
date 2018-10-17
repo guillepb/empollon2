@@ -8,7 +8,7 @@ export class ApiService {
 
   constructor() { }
 
-  getQuestions(): Question[] {
+  getData(): Question[] {
     return [
       new Question (
         'Según los procedimientos en vigor, ¿qué procedimiento tiene que aplicar el sector \

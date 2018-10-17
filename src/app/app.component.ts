@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   }
 
   getQuestions(): void {
-    this.questionList = this.apiService.getQuestions();
+    this.questionList = this.apiService.getData();
   }
 
   ngOnInit() {
