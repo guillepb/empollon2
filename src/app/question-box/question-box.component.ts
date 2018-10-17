@@ -3,8 +3,7 @@ import {
   Input,
   Output,
   EventEmitter,
-  OnInit,
-  HostBinding
+  OnInit
 } from '@angular/core';
 import { Question } from '../question.model';
 import { Answer } from '../answer.model';
@@ -18,7 +17,6 @@ export class QuestionBoxComponent implements OnInit {
 
   @Input() question: Question;
   @Output() correctlyAnswered: EventEmitter<boolean>;
-  @HostBinding('attr.class') cssClass = 'ui segment';
 
   selectedAnswer: Answer;
 
@@ -26,7 +24,7 @@ export class QuestionBoxComponent implements OnInit {
     this.correctlyAnswered = new EventEmitter();
   }
 
-  verifyAnswer(answer: Answer) {
+  verifyAnswer(answer: Answer): void {
     if (!this.question.isAnswered) {
       this.question.isAnswered = true;
       this.selectedAnswer = answer;

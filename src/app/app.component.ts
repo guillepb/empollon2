@@ -47,6 +47,24 @@ export class AppComponent {
             'isCorrect': false
           }
       ]
+      ),
+      new Question (
+        'De acuerdo con LoA en vigor entre LECB y LFBB, los sobrevuelos con destino \
+          LFBO, LFBP y LFBT deben ser transferidos por LECB, vía:',
+        [
+          {
+            'text': 'GIROM',
+            'isCorrect': true
+          },
+          {
+            'text': 'OKABI',
+            'isCorrect': false
+          },
+          {
+            'text': 'ANETO',
+            'isCorrect': false
+          }
+      ]
       )
     ];
   }

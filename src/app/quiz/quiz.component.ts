@@ -1,6 +1,7 @@
 import {
   Component,
   Input,
+  HostBinding,
   OnInit } from '@angular/core';
 
 import { Question } from '../question.model';
@@ -11,12 +12,19 @@ import { Question } from '../question.model';
   styleUrls: ['./quiz.component.css']
 })
 export class QuizComponent implements OnInit {
-
+  @HostBinding('attr.class') cssClass = 'ui segment';
   @Input() questions: Question[];
-  score: number;
-  answeredQuestions: number;
+  score = 0;
+  answeredQuestions = 0;
 
   constructor() { }
+
+  scoreAnsweredQuestion (success: boolean): void {
+    this.answeredQuestions++;
+    if (success) {
+      this.score++;
+    }
+  }
 
   ngOnInit() {
   }

@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  HostBinding,
+  OnInit
+} from '@angular/core';
 
 @Component({
   selector: 'app-set-form',
@@ -6,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./set-form.component.css']
 })
 export class SetFormComponent implements OnInit {
+  @HostBinding('attr.class') cssClass = 'ui segment';
 
   constructor() { }
 

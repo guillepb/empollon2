@@ -1,7 +1,10 @@
-<app-score></app-score>
-<div>
-  <app-question-box
-    *ngFor='let question of questions'
-    [question]='question'>
-  </app-question-box>
-</div>
+<app-score
+[totalAnswered]='answeredQuestions'
+[correctAnswers]='score'
+></app-score>
+
+<app-question-box
+  *ngFor='let question of questions'
+  [question]='question'
+  (correctlyAnswered)='scoreAnsweredQuestion($event)'>
+</app-question-box>
