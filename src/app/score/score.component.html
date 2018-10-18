@@ -1,9 +1,8 @@
-<div class="ui tiny statistic">
+<div class="ui mini statistic">
     <div class="value">
-      {{ correctAnswers/totalAnswered | percent: '1.0' }}
+    {{ correctAnswers/totalAnswered | percent: '1.0' }}
     </div>
     <div class="label">
-        {{ correctAnswers }}/{{ totalAnswered }} 
+        ({{ correctAnswers }}/{{ totalAnswered }})
     </div>
 </div>
-
