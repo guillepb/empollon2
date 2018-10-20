@@ -1,14 +1,29 @@
 import { Injectable } from '@angular/core';
 import { Question } from './question.model';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
+  apiUrl = environment.apiUrl;
 
-  constructor() { }
+  constructor(private http: HttpClient) {}
 
-  getData(): Question[] {
+  getQuestionsFromSet(set: number): Question[] {
+    const url: string = [
+      this.apiUrl,
+      'set',
+      set,
+      'questions'
+    ].join('/');
+    console.log(url);
+    let data;
+    this.http.get(url).subscribe(response => data = response);
+    console.log(data);
+
     return [
       new Question (
         'Según los procedimientos en vigor, ¿qué procedimiento tiene que aplicar el sector \
