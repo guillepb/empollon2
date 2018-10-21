@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://deludo.com/LECBapps/empollon/API/public'
+  apiUrl: 'http://localhost:3000'
 };
 
 /*
