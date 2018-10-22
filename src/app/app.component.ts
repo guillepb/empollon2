@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Question } from './question.model';
 import { ApiService } from './api.service';
 
+import { merge } from 'rxjs';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,13 +16,18 @@ export class AppComponent implements OnInit {
   constructor (private apiService: ApiService) {
   }
 
-  getQuestions(): void {
+  getQuestions(sets: number[]): void {
     this.questionList = [];
-    this.apiService.getQuestionsFromSet(1).subscribe(data => console.log(data));
+
+    merge(...sets.map(set => this.apiService.getQuestionsFromSet(set)))
+      .subscribe(data => this.questionList.push(...data));
+
+    // console.log(this.questionList);
   }
 
   ngOnInit() {
-    this.getQuestions();
+    // in the future, get args from form
+    this.getQuestions([1, 2, 3]);
   }
 }
 

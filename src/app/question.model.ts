@@ -7,4 +7,11 @@ export class Question {
         public isAnswered = false,
         public isCorrect?: boolean
     ) {}
+
+    static mapFromApi(array: Array<Object>): Question[] {
+        return array.map(obj => {
+            const answers = Answer.mapFromApi(obj['respuestas']);
+            return new Question(obj['texto'], answers);
+        });
+    }
 }
