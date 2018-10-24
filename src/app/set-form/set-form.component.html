@@ -1,1 +1,27 @@
-Form will go here
+<div class="ui breadcrumb">
+    <sui-select class="inline"
+        [(ngModel)]="selectedDep"
+        (ngModelChange)="onDepSelect($event)"
+        [options]="dropdownOptions"
+        labelField="icaocode"
+        placeholder="Dependencia..."
+        isSearchable="true"
+        #depSelect>
+        <sui-select-option *ngFor="let opt of depSelect.filteredOptions"
+            [value]="opt"></sui-select-option>
+    </sui-select>
+    <i *ngIf="(selectedDep && !hideNucSelect)" class="right angle icon divider"></i>
+    <sui-select *ngIf="(selectedDep && !hideNucSelect)"
+        class="inline"
+        [(ngModel)]="selectedNuc"
+        [options]="selectedDep.nucleos"
+        labelField="nombre"
+        placeholder="Núcleo..."
+        isSearchable="true"
+        #nucSelect>
+        <sui-select-option *ngFor="let opt of nucSelect.filteredOptions"
+            [value]="opt"></sui-select-option>
+    </sui-select>
+    <i *ngIf="selectedNuc" class="right angle icon divider"></i>
+    <div *ngIf="selectedNuc" class="active section" suiPopup popupText="{{ selectedNuc | json }}">Temas</div>
+</div>
