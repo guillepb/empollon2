@@ -1,0 +1,78 @@
+{
+    "dependencias": [
+        { "id": 1, "icaocode": "LECB", "nombre": "ACC Barcelona" },
+        { "id": 2, "icaocode": "LEBL", "nombre": "Torre Barcelona" }
+    ],
+    "nucleos": [
+        { "id": 1, "nombre": "Ruta E", "dependenciaId": 1 },
+        { "id": 2, "nombre": "Ruta W", "dependenciaId": 1 },
+        { "id": 3, "nombre": "Torre Barcelona", "dependenciaId": 2 }
+    ],
+    "temas": [
+        { "id": 1, "nombre": "Un tema de LEBL" },
+        { "id": 2, "nombre": "Un tema de LECB entero" },
+        { "id": 3, "nombre": "Un tema de Ruta E" },
+        { "id": 4, "nombre": "Un tema de Ruta W" },
+        { "id": 5, "nombre": "Otro tema de Ruta W" }
+    ],
+    "temasnucleos": [
+        { "id": 1, "temaId": 1, "nucleoId": 3 },
+        { "id": 2, "temaId": 2, "nucleoId": 1 },
+        { "id": 3, "temaId": 2, "nucleoId": 2 },
+        { "id": 4, "temaId": 3, "nucleoId": 1 },
+        { "id": 5, "temaId": 4, "nucleoId": 2 },
+        { "id": 6, "temaId": 5, "nucleoId": 2 }
+    ],
+    "preguntas": [
+        { "id": 1, "temaId": 1, "texto": "Seg\u00fan los procedimientos en vigor, \u00bfqu\u00e9 procedimiento tiene que aplicar el sector P1U para una arribada a LEVC v\u00eda EBROX-SOPET?:" },
+        { "id": 2, "temaId": 1, "texto": "De acuerdo con LoA en vigor entre LECB y LFBB, los sobrevuelos con destino LFBO, LFBP y LFBT deben ser transferidos por LECB, v\u00eda:"},
+        { "id": 3, "temaId": 1, "texto": "Seg\u00fan la LoA en vigor entre LECB y LECP, la responsabilidad de la separaci\u00f3n entre un despegue de LEMH y una arribada de LEIB recae sobre:" },
+        { "id": 4, "temaId": 2, "texto": "El procedimiento aprobado en LECB para los despegues de LEPA v\u00eda EPAMA con RFL 325+ es:" },
+        { "id": 5, "temaId": 2, "texto": "El procedimiento aprobado por LoA para los despegues de LEPA con ruta MEROS-LUMAS y RFL260 es:" },
+        { "id": 6, "temaId": 2, "texto": "Ante la petici\u00f3n por parte de una aeronave de un FL de crucero diferente del FL aprobado, \u00bfqu\u00e9 debe hacer el equipo de controladores del sector correspondiente antes de asign\u00e1rselo?" },
+        { "id": 7, "temaId": 3, "texto": "Estando trabajando en el sector LGL, tenemos un tr\u00e1fico despegue de LEVC con RFL 360 con ruta GODOX-PTC-MHN- MORSS. \u00bfQu\u00e9 procedimiento es de aplicaci\u00f3n?:" },
+        { "id": 8, "temaId": 3, "texto": "Seg\u00fan la LoA en vigor entre LFMM y LECB, DIBER tiene la particularidad de ser utilizable por:" },
+        { "id": 9, "temaId": 4, "texto": "Seg\u00fan la LoA entre LECM y LECB en vigor, un tr\u00e1fico con origen KJFK y cuyo destino es LEGE v\u00eda GRAUS y con ECL 315+ ser\u00e1 transferido por LECM:" },
+        { "id": 10, "temaId": 4, "texto": "En el procedimiento aplicable para tr\u00e1ficos destino LEVC v\u00eda SADAF-IZA, el sector VVS recibe el tr\u00e1fico de DAAA y:" },
+        { "id": 11, "temaId": 5, "texto": "Seg\u00fan la LoA en vigor entre LFMM y LECB, SORAS es un punto utilizable si el tr\u00e1fico tiene por destino:" },
+        { "id": 12, "temaId": 5, "texto": "Seg\u00fan la LoA en vigor entre LECB y LECP, los despegues de LEMH v\u00eda MJV-ADX-GALAT\/DRAGO ser\u00e1n autorizados por LECP:" }
+    ],
+    "respuestas": [
+        { "id": 4, "preguntaId": 1, "texto": "Bajarla a FL 350 y pasarla al sector P1L.", "correcta": true },
+        { "id": 5, "preguntaId": 1, "texto": "Bajarla a FL 310 y pasarla al sector DDS.", "correcta": false},
+        { "id": 6, "preguntaId": 1, "texto": "Coordinar nivel de transferencia con el sector P1L.", "correcta": false},
+        { "id": 7, "preguntaId": 2, "texto": "GIROM.", "correcta": true},
+        { "id": 8, "preguntaId": 2, "texto": "OKABI.", "correcta": false},
+        { "id": 9, "preguntaId": 2, "texto": "ANETO.", "correcta": false},
+        { "id": 10, "preguntaId": 3, "texto": "LECB.", "correcta": true},
+        { "id": 11, "preguntaId": 3, "texto": "LECB a requerimiento de LECP cuando el supervisor de LECP as\u00ed lo considere conveniente.", "correcta": false},
+        { "id": 12, "preguntaId": 3, "texto": "LECP.", "correcta": false},
+        { "id": 13, "preguntaId": 4, "texto": "El sector LVS recibe el tr\u00e1fico de LECP en ascenso para FL 240, lo sube a FL 310, lo pasa al LVL, que lo pasa al LVU en ascenso a FL coordinado y \u00e9ste lo sube a RCL.", "correcta": true},
+        { "id": 14, "preguntaId": 4, "texto": "El sector LVS recibe el tr\u00e1fico de LECP en ascenso para FL 240 y lo sube al FL coordinado con el LVU. Posteriormente transfiere el tr\u00e1fico al sector LVU y \u00e9ste lo contin\u00faa subiendo a RCL.", "correcta": false},
+        { "id": 15, "preguntaId": 4, "texto": "El sector LVS recibe el tr\u00e1fico de LECP en ascenso para FL 240 y lo sube al FL coordinado con el LVU, coordinando el ascenso con el sector LVL. Posteriormente transfiere el tr\u00e1fico al sector LVU y \u00e9ste lo contin\u00faa subiendo a RCL.", "correcta": false},
+        { "id": 16, "preguntaId": 5, "texto": "El tr\u00e1fico sale directamente con el sector MNL en ascenso a FL 260 sin necesidad de coordinaciones previas.", "correcta": true},
+        { "id": 17, "preguntaId": 5, "texto": "LECP coordina con el sector VVS las condiciones de transferencia.", "correcta": false},
+        { "id": 18, "preguntaId": 5, "texto": "LECP coordina con el sector MMS las condiciones de transferencia.", "correcta": false},
+        { "id": 19, "preguntaId": 6, "texto": "Todas son correctas.", "correcta": true},
+        { "id": 20, "preguntaId": 6, "texto": "Consultar el \u00faltimo CAMPO ROUTE incluido en el HIST\u00d3RICO de la informaci\u00f3n de plan de vuelo que dispone SACTA.", "correcta": false},
+        { "id": 21, "preguntaId": 6, "texto": "Si la petici\u00f3n es debida a turbulencia en vuelo o factores meteorol\u00f3gicos, asign\u00e1rselo teniendo en cuenta el resto del tr\u00e1fico afectado.", "correcta": false},
+        { "id": 22, "preguntaId": 7, "texto": "Recibimos el tr\u00e1fico de LECP|FL 240 -> LGL|FL 320 -> VVS|FL 360.", "correcta": true},
+        { "id": 23, "preguntaId": 7, "texto": "Recibimos el tr\u00e1fico de LECP|FL 240 -> LGL|FL 320 -> LGU|FL 360 -> VVS.", "correcta": false},
+        { "id": 24, "preguntaId": 7, "texto": "Recibimos el tr\u00e1fico de LECP|FL 240 -> LGL|FLCLGU (*) -> LGU|FL 360 -> VVS. (* FLCLGU: Nivel coordinado con el sector LGU)", "correcta": false},
+        { "id": 25, "preguntaId": 8, "texto": "Todas son correctas.", "correcta": true},
+        { "id": 26, "preguntaId": 8, "texto": "Despegues de LEBL\/LERS a FL 300 m\u00e1ximo.", "correcta": false},
+        { "id": 27, "preguntaId": 8, "texto": "Sobrevuelos por BCN cuyos destinos sean LFM...\/ LFT... a FL 300 m\u00e1ximo.", "correcta": false},
+        { "id": 28, "preguntaId": 9, "texto": "Al sector PP2 a FL 320. PP2 lo baja a FL 310 y lo pasa al DDN.", "correcta": true},
+        { "id": 29, "preguntaId": 9, "texto": "Al sector DDN en descenso a FL 300.", "correcta": false},
+        { "id": 30, "preguntaId": 9, "texto": "Al sector PP2 a ECL. PP2 lo baja a FL 310 y lo pasa al DDN.", "correcta": false},
+        { "id": 31, "preguntaId": 10, "texto": "Lo transfiere al sector LGU al FL coordinado. El sector LGU lo desciende a FL 250, establecido en IZA, y lo transfiere a LECP.", "correcta": true},
+        { "id": 32, "preguntaId": 10, "texto": "Lo transfiere al sector LVS al FL coordinado. El sector LVS lo desciende a FL 250, establecido en IZA, y lo transfiere a LECL.", "correcta": false},
+        { "id": 33, "preguntaId": 10, "texto": "Lo transfiere al sector LGU al FL coordinado. El sector LGU lo desciende a FL 250 y lo transfiere a LECP.", "correcta": false},
+        { "id": 34, "preguntaId": 11, "texto": "LEIB o cualquier aeropuerto m\u00e1s al Oeste de LEIB.", "correcta": true},
+        { "id": 35, "preguntaId": 11, "texto": "LEIB\/LEPA.", "correcta": false},
+        { "id": 36, "preguntaId": 11, "texto": "LEIB o cualquier aeropuerto m\u00e1s al Este de LEIB.", "correcta": false},
+        { "id": 37, "preguntaId": 12, "texto": "FL 240 y transferidos al sector VVS, que lo autoriza a RFL para transferirlos posteriormente al sector P1L\/U.", "correcta": true},
+        { "id": 38, "preguntaId": 12, "texto": "FL 280 y transferidos al sector P1I, que lo autoriza a RFL para transferirlos posteriormente al sector P1U si correspondiera.", "correcta": false},
+        { "id": 39, "preguntaId": 12, "texto": "FL 260 y transferidos al sector VVS, que lo autoriza a RFL para transferirlos posteriormente al sector P1L\/U.", "correcta": false}
+    ]
+}
