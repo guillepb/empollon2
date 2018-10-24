@@ -2,7 +2,7 @@
     <sui-select class="inline"
         [(ngModel)]="selectedDep"
         (ngModelChange)="onDepSelect($event)"
-        [options]="dropdownOptions"
+        [options]="depDropdownOptions"
         labelField="icaocode"
         placeholder="Dependencia..."
         isSearchable="true"
@@ -14,6 +14,7 @@
     <sui-select *ngIf="(selectedDep && !hideNucSelect)"
         class="inline"
         [(ngModel)]="selectedNuc"
+        (ngModelChange)="onNucSelect($event)"
         [options]="selectedDep.nucleos"
         labelField="nombre"
         placeholder="Núcleo..."
@@ -22,6 +23,26 @@
         <sui-select-option *ngFor="let opt of nucSelect.filteredOptions"
             [value]="opt"></sui-select-option>
     </sui-select>
-    <i *ngIf="selectedNuc" class="right angle icon divider"></i>
-    <div *ngIf="selectedNuc" class="active section" suiPopup popupText="{{ selectedNuc | json }}">Temas</div>
+</div>
+<div *ngIf="selectedNuc" class="ui segment">
+    <sui-multi-select *ngIf="selectedNuc"
+        [(ngModel)]="selected"
+        [options]="temaSelectOptions"
+        placeholder="Temas..."
+        labelField="nombre"
+        [maxSelected]="5"
+        icon="list"
+        #temaSelect>
+        <div class="ui icon search input">
+            <i class="search icon"></i>
+            <input suiSelectSearch type="text" placeholder="Search options...">
+        </div>
+        <div class="scrolling menu">
+            <sui-select-option *ngFor="let o of temaSelect.filteredOptions" [value]="o"></sui-select-option>
+        </div>
+    </sui-multi-select>
+    <br>
+    <sui-checkbox [(ngModel)]="shuffleQuestions">¿Mezclar preguntas?</sui-checkbox>
+    <br>
+    <sui-checkbox [(ngModel)]="shuffleAnswers">¿Desordenar respuestas?</sui-checkbox>
 </div>
