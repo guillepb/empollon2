@@ -28,6 +28,7 @@
     <sui-multi-select *ngIf="selectedNuc"
         [(ngModel)]="selected"
         [options]="temaSelectOptions"
+        (selectedOptionsChange)="temaSelected.emit($event)"
         placeholder="Temas..."
         labelField="nombre"
         [maxSelected]="5"

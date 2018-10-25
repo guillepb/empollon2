@@ -1,6 +1,8 @@
 import {
   Component,
   HostBinding,
+  EventEmitter,
+  Output,
   OnInit
 } from '@angular/core';
 
@@ -13,13 +15,17 @@ import { ApiService } from '../api.service';
 })
 export class SetFormComponent implements OnInit {
   @HostBinding('attr.class') cssClass = 'ui segment';
+  @Output() temaSelected: EventEmitter<any[]>;
+
   depDropdownOptions: any[];
   temaSelectOptions: any[];
   selectedDep: any[];
   selectedNuc: any[];
   hideNucSelect = false;
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService) {
+    this.temaSelected = new EventEmitter();
+  }
 
   ngOnInit() {
     this.apiService.getDeps().subscribe(res => this.depDropdownOptions = res);
@@ -38,7 +44,6 @@ export class SetFormComponent implements OnInit {
   }
 
   onNucSelect(obj: any[]): void {
-    console.log(obj);
     this.apiService.getTemasFromNuc(obj['id']).subscribe(res => this.temaSelectOptions = res);
   }
 }

@@ -1,4 +1,6 @@
-<app-set-form></app-set-form>
+<app-set-form
+  (temaSelected)="getQuestions($event)">
+</app-set-form>
 <div>
   <app-quiz [questions]='questionList'></app-quiz>
 </div>

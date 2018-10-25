@@ -16,18 +16,17 @@ export class AppComponent implements OnInit {
   constructor (private apiService: ApiService) {
   }
 
-  getQuestions(sets: number[]): void {
+  getQuestions(sets: any[]): void {
     this.questionList = [];
-
-    merge(...sets.map(set => this.apiService.getQuestionsFromSet(set)))
+    // console.log(sets);
+    const setArray = sets.map(item => item['id']);
+    // console.log(setArray);
+    merge(...setArray.map(set => this.apiService.getQuestionsFromSet(set)))
       .subscribe(data => this.questionList.push(...data));
-
     // console.log(this.questionList);
   }
 
   ngOnInit() {
-    // in the future, get args from form
-    this.getQuestions([1, 2, 3]);
   }
 }
 
