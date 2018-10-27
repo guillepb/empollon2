@@ -24,7 +24,7 @@ export class ApiService {
     return this.http.get<Question[]>(url).pipe(map(res => Question.mapFromApi(res)));
   }
 
-  getDeps(): Observable<any[]> {
+  getFacs(): Observable<any[]> {
     const url: string = [
       this.apiUrl,
       'dependencias?_embed=nucleos',
@@ -32,11 +32,11 @@ export class ApiService {
     return this.http.get<any[]>(url);
   }
 
-  getTemasFromNuc(nuc: number): Observable<any[]> {
+  getSetsFromCluster(cluster: number): Observable<any[]> {
     const url: string = [
       this.apiUrl,
       'nucleo',
-      nuc,
+      cluster,
       'temasnucleos?_expand=tema'
     ].join('/');
     return this.http.get<any[]>(url).pipe(map(res => res.map(item => item['tema'])));

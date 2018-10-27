@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
   }
 
   getQuestions(sets: any[]): void {
+    console.log('getQuestions');
     this.questionList = [];
     // console.log(sets);
     const setArray = sets.map(item => item['id']);

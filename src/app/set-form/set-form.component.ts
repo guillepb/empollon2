@@ -15,35 +15,38 @@ import { ApiService } from '../api.service';
 })
 export class SetFormComponent implements OnInit {
   @HostBinding('attr.class') cssClass = 'ui segment';
-  @Output() temaSelected: EventEmitter<any[]>;
+  @Output() setSelected: EventEmitter<any[]>;
 
-  depDropdownOptions: any[];
-  temaSelectOptions: any[];
-  selectedDep: any[];
-  selectedNuc: any[];
-  hideNucSelect = false;
+  facDropdownOptions: any[];
+  setSelectOptions: any[];
+  selectedFac: any[];
+  selectedCluster: any[];
+  hideClusterSelect = false;
 
   constructor(private apiService: ApiService) {
-    this.temaSelected = new EventEmitter();
+    this.setSelected = new EventEmitter();
   }
 
   ngOnInit() {
-    this.apiService.getDeps().subscribe(res => this.depDropdownOptions = res);
+    this.apiService.getFacs().subscribe(res => {
+      this.facDropdownOptions = res;
+      console.log(this.facDropdownOptions);
+    });
   }
 
-  onDepSelect(obj: any[]): void {
-    // preselect nucleo when there is only one
+  onFacSelect(obj: any[]): void {
+    // preselect núcleo when there is only one
     if (obj['nucleos'].length === 1) {
-      this.selectedNuc = obj['nucleos'][0];
-      this.onNucSelect(this.selectedNuc);
-      this.hideNucSelect = true;
+      this.selectedCluster = obj['nucleos'][0];
+      this.onClusterSelect(this.selectedCluster);
+      this.hideClusterSelect = true;
      } else {
-      delete this.selectedNuc;
-      this.hideNucSelect = false;
+      delete this.selectedCluster;
+      this.hideClusterSelect = false;
      }
   }
 
-  onNucSelect(obj: any[]): void {
-    this.apiService.getTemasFromNuc(obj['id']).subscribe(res => this.temaSelectOptions = res);
+  onClusterSelect(obj: any[]): void {
+    this.apiService.getSetsFromCluster(obj['id']).subscribe(res => this.setSelectOptions = res);
   }
 }

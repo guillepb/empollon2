@@ -1,45 +1,45 @@
 <div class="ui breadcrumb">
     <sui-select class="inline"
-        [(ngModel)]="selectedDep"
-        (ngModelChange)="onDepSelect($event)"
-        [options]="depDropdownOptions"
+        [(ngModel)]="selectedFac"
+        (ngModelChange)="onFacSelect($event)"
+        [options]="facDropdownOptions"
         labelField="icaocode"
         placeholder="Dependencia..."
         isSearchable="true"
-        #depSelect>
-        <sui-select-option *ngFor="let opt of depSelect.filteredOptions"
+        #facSelect>
+        <sui-select-option *ngFor="let opt of facSelect.filteredOptions"
             [value]="opt"></sui-select-option>
     </sui-select>
-    <i *ngIf="(selectedDep && !hideNucSelect)" class="right angle icon divider"></i>
-    <sui-select *ngIf="(selectedDep && !hideNucSelect)"
+    <i *ngIf="(selectedFac && !hideClusterSelect)" class="right angle icon divider"></i>
+    <sui-select *ngIf="(selectedFac && !hideClusterSelect)"
         class="inline"
-        [(ngModel)]="selectedNuc"
-        (ngModelChange)="onNucSelect($event)"
-        [options]="selectedDep.nucleos"
+        [(ngModel)]="selectedCluster"
+        (ngModelChange)="onClusterSelect($event)"
+        [options]="selectedFac.nucleos"
         labelField="nombre"
         placeholder="Núcleo..."
         isSearchable="true"
-        #nucSelect>
-        <sui-select-option *ngFor="let opt of nucSelect.filteredOptions"
+        #clusterSelect>
+        <sui-select-option *ngFor="let opt of clusterSelect.filteredOptions"
             [value]="opt"></sui-select-option>
     </sui-select>
 </div>
-<div *ngIf="selectedNuc" class="ui segment">
-    <sui-multi-select *ngIf="selectedNuc"
+<div *ngIf="selectedCluster" class="ui segment">
+    <sui-multi-select *ngIf="selectedCluster"
         [(ngModel)]="selected"
-        [options]="temaSelectOptions"
-        (selectedOptionsChange)="temaSelected.emit($event)"
+        [options]="setSelectOptions"
+        (selectedOptionsChange)="setSelected.emit($event)"
         placeholder="Temas..."
         labelField="nombre"
         [maxSelected]="5"
         icon="list"
-        #temaSelect>
+        #setSelect>
         <div class="ui icon search input">
             <i class="search icon"></i>
             <input suiSelectSearch type="text" placeholder="Search options...">
         </div>
         <div class="scrolling menu">
-            <sui-select-option *ngFor="let o of temaSelect.filteredOptions" [value]="o"></sui-select-option>
+            <sui-select-option *ngFor="let o of setSelect.filteredOptions" [value]="o"></sui-select-option>
         </div>
     </sui-multi-select>
     <br>
