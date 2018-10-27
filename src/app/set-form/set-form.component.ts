@@ -30,7 +30,6 @@ export class SetFormComponent implements OnInit {
   ngOnInit() {
     this.apiService.getFacs().subscribe(res => {
       this.facDropdownOptions = res;
-      console.log(this.facDropdownOptions);
     });
   }
 
