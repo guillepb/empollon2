@@ -1,49 +1,48 @@
-<div class="ui breadcrumb">
-    <sui-select class="inline"
-        [(ngModel)]="selectedFac"
-        (ngModelChange)="onFacSelect($event)"
-        [options]="facDropdownOptions"
-        labelField="icaocode"
-        placeholder="Dependencia..."
-        isSearchable="true"
-        #facSelect>
-        <sui-select-option *ngFor="let opt of facSelect.filteredOptions"
-            [value]="opt"></sui-select-option>
-    </sui-select>
-    <i *ngIf="(selectedFac && !hideClusterSelect)" class="right angle icon divider"></i>
-    <sui-select *ngIf="(selectedFac && !hideClusterSelect)"
-        class="inline"
-        [(ngModel)]="selectedCluster"
-        (ngModelChange)="onClusterSelect($event)"
-        [options]="selectedFac.nucleos"
-        labelField="nombre"
-        placeholder="Núcleo..."
-        isSearchable="true"
-        #clusterSelect>
-        <sui-select-option *ngFor="let opt of clusterSelect.filteredOptions"
-            [value]="opt"></sui-select-option>
-    </sui-select>
-</div>
-<div *ngIf="selectedCluster" class="ui segment">
-    <sui-multi-select *ngIf="selectedCluster"
-        [(ngModel)]="selected"
-        [options]="setSelectOptions"
-        (selectedOptionsChange)="setSelected.emit($event)"
-        placeholder="Temas..."
-        labelField="nombre"
-        [maxSelected]="5"
-        icon="list"
-        #setSelect>
-        <div class="ui icon search input">
-            <i class="search icon"></i>
-            <input suiSelectSearch type="text" placeholder="Search options...">
-        </div>
-        <div class="scrolling menu">
-            <sui-select-option *ngFor="let o of setSelect.filteredOptions" [value]="o"></sui-select-option>
-        </div>
-    </sui-multi-select>
-    <br>
-    <sui-checkbox [(ngModel)]="shuffleQuestions">¿Mezclar preguntas?</sui-checkbox>
-    <br>
-    <sui-checkbox [(ngModel)]="shuffleAnswers">¿Desordenar respuestas?</sui-checkbox>
-</div>
+<form [formGroup]="quizSetupForm">
+    <div class="ui breadcrumb">
+        <sui-select class="inline"
+            formControlName="facility"
+            [options]="facilityOptions"
+            labelField="icaocode"
+            placeholder="Dependencia..."
+            isSearchable="true"
+            #facSelect>
+            <sui-select-option *ngFor="let opt of facSelect.filteredOptions"
+                [value]="opt"></sui-select-option>
+        </sui-select>
+        <i *ngIf="showClusterSelect" class="right angle icon divider"></i>
+        <sui-select *ngIf="showClusterSelect"
+            formControlName="cluster"
+            class="inline"
+            [options]="clusterOptions"
+            labelField="nombre"
+            placeholder="Núcleo..."
+            isSearchable="true"
+            #clusterSelect>
+            <sui-select-option *ngFor="let opt of clusterSelect.filteredOptions"
+                [value]="opt"></sui-select-option>
+        </sui-select>
+    </div>
+    <div *ngIf="setSelectOptions" formGroupName="quizContent" class="ui segment">
+        <sui-multi-select
+            formControlName="sets"
+            [options]="setSelectOptions"
+            placeholder="Temas..."
+            labelField="nombre"
+            [maxSelected]="5"
+            icon="list"
+            #setSelect>
+            <div class="ui icon search input">
+                <i class="search icon"></i>
+                <input suiSelectSearch type="text" placeholder="Search options...">
+            </div>
+            <div class="scrolling menu">
+                <sui-select-option *ngFor="let o of setSelect.filteredOptions" [value]="o"></sui-select-option>
+            </div>
+        </sui-multi-select>
+        <br>
+        <sui-checkbox formControlName="shuffleQuestions">Mezclar preguntas</sui-checkbox>
+        <br>
+        <sui-checkbox formControlName="shuffleAnswers">Desordenar respuestas</sui-checkbox>
+    </div>
+</form>

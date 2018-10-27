@@ -1,6 +1,7 @@
 <app-set-form
-  (setSelected)="getQuestions($event)">
+  (formCompleted)="quizSetup = $event"
+  #setForm>
 </app-set-form>
 <div>
-  <app-quiz [questions]='questionList'></app-quiz>
+  <app-quiz *ngIf="quizSetup" [quizSetup]='quizSetup'></app-quiz>
 </div>

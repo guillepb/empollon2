@@ -4,9 +4,10 @@
   [correctAnswers]='score'
   ></app-score>
 </div>
+{{ quizSetup | json }}
 <div>
 <app-question-box
-*ngFor='let question of questions'
+*ngFor='let question of questionList'
 [question]='question'
 (correctlyAnswered)='scoreAnsweredQuestion($event)'>
 </app-question-box>
