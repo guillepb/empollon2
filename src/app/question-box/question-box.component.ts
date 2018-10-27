@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { Question } from '../question.model';
 import { Answer } from '../answer.model';
+import { _ } from 'underscore';
 
 @Component({
   selector: 'app-question-box',
@@ -16,6 +17,7 @@ import { Answer } from '../answer.model';
 export class QuestionBoxComponent implements OnInit {
 
   @Input() question: Question;
+  @Input() shuffleAnswers: boolean;
   @Output() correctlyAnswered: EventEmitter<boolean>;
 
   selectedAnswer: Answer;
@@ -34,6 +36,9 @@ export class QuestionBoxComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (this.shuffleAnswers) {
+      this.question.answers = _.shuffle(this.question.answers);
+    }
   }
 
 }

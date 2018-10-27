@@ -8,6 +8,7 @@ import { Question } from '../question.model';
 import { ApiService } from '../api.service';
 
 import { merge } from 'rxjs';
+import { _ } from 'underscore';
 
 @Component({
   selector: 'app-quiz',
@@ -32,7 +33,9 @@ export class QuizComponent implements OnChanges {
     merge(...setArray.map(set => this.apiService.getQuestionsFromSet(set)))
       .subscribe(data => {
         this.questionList.push(...data)
-        console.log(this.questionList);
+        if (shuffleQuestions) {
+          this.questionList = _.shuffle(this.questionList);
+        }
       });
     // console.log(this.questionList);
   }
@@ -45,7 +48,9 @@ export class QuizComponent implements OnChanges {
   }
 
   ngOnChanges() {
-    this.getQuestions(this.quizSetup.sets, this.quizSetup.shuffleQuestions);
+    if (this.quizSetup.sets) {
+      this.getQuestions(this.quizSetup.sets, this.quizSetup.shuffleQuestions);
+    }
   }
 
 }
