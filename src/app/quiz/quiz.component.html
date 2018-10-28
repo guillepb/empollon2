@@ -1,14 +1,6 @@
-<div class="top-sticky">
-  <app-score
-  [totalAnswered]='answeredQuestions'
-  [correctAnswers]='score'
-  ></app-score>
-</div>
-<div>
 <app-question-box
 *ngFor='let question of questionList'
 [question]='question'
 [shuffleAnswers]='quizSetup.shuffleAnswers'
 (correctlyAnswered)='scoreAnsweredQuestion($event)'>
 </app-question-box>
-</div>

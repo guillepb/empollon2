@@ -1,7 +1,11 @@
-<app-set-form
-  (formCompleted)="quizSetup = $event"
-  #setForm>
-</app-set-form>
+<app-header
+  (formTransmit)="quizSetup = $event"
+  [scoreData]="scoreData">
+</app-header>
 <div>
-  <app-quiz *ngIf="quizSetup" [quizSetup]='quizSetup'></app-quiz>
+  <app-quiz
+    *ngIf="quizSetup"
+    [quizSetup]='quizSetup'
+    (scoreUpdated)='scoreData = $event'>
+  </app-quiz>
 </div>

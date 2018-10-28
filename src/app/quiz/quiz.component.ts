@@ -1,6 +1,8 @@
 import {
   Component,
   Input,
+  Output,
+  EventEmitter,
   HostBinding,
   OnChanges } from '@angular/core';
 
@@ -18,12 +20,17 @@ import { _ } from 'underscore';
 export class QuizComponent implements OnChanges {
   @HostBinding('attr.class') cssClass = 'ui segment';
   @Input() quizSetup: any;
+  @Output() scoreUpdated: EventEmitter<any>;
 
   questionList: Question[];
-  score = 0;
-  answeredQuestions = 0;
+  scoreData: any = {
+    'score': 0,
+    'answeredQuestions': 0
+  };
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService) {
+    this.scoreUpdated = new EventEmitter();
+  }
 
   getQuestions(sets: any[], shuffleQuestions?: boolean): void {
     this.questionList = [];
@@ -41,10 +48,11 @@ export class QuizComponent implements OnChanges {
   }
 
   scoreAnsweredQuestion (success: boolean): void {
-    this.answeredQuestions++;
+    this.scoreData.answeredQuestions++;
     if (success) {
-      this.score++;
+      this.scoreData.score++;
     }
+    this.scoreUpdated.emit(this.scoreData);
   }
 
   ngOnChanges() {

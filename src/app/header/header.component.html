@@ -1,0 +1,13 @@
+<div class="ui two grid segment">
+    <div class="column" style="flex: 1;">
+      <app-set-form
+        (formCompleted)="formTransmit.emit($event)"
+        #setForm>
+      </app-set-form>
+    </div>
+    <div class="column" style="flex: 0 0 70px;">
+      <app-score
+        [scoreData]=scoreData>
+      </app-score>
+    </div>
+</div>

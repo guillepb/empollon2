@@ -22,27 +22,28 @@
             <sui-select-option *ngFor="let opt of clusterSelect.filteredOptions"
                 [value]="opt"></sui-select-option>
         </sui-select>
-    </div>
-    <div *ngIf="setSelectOptions" formGroupName="quizContent" class="ui segment">
-        <sui-multi-select
-            formControlName="sets"
-            [options]="setSelectOptions"
-            placeholder="Temas..."
-            labelField="nombre"
-            [maxSelected]="5"
-            icon="list"
-            #setSelect>
-            <div class="ui icon search input">
-                <i class="search icon"></i>
-                <input suiSelectSearch type="text" placeholder="Search options...">
-            </div>
-            <div class="scrolling menu">
-                <sui-select-option *ngFor="let o of setSelect.filteredOptions" [value]="o"></sui-select-option>
-            </div>
-        </sui-multi-select>
-        <br>
-        <sui-checkbox formControlName="shuffleQuestions">Mezclar preguntas</sui-checkbox>
-        <br>
-        <sui-checkbox formControlName="shuffleAnswers">Desordenar respuestas</sui-checkbox>
+        <i *ngIf="setSelectOptions" class="right angle icon divider"></i>
+        <span *ngIf="setSelectOptions" formGroupName="quizContent">
+            <sui-multi-select
+                formControlName="sets"
+                [options]="setSelectOptions"
+                placeholder="Temas..."
+                labelField="nombre"
+                [hasLabels]="false"
+                class="inline" 
+                #setSelect>
+                <div class="ui icon search input">
+                    <i class="search icon"></i>
+                    <input suiSelectSearch type="text" placeholder="Search options...">
+                </div>
+                <div class="scrolling menu">
+                    <sui-checkbox formControlName="shuffleQuestions">Mezclar preguntas</sui-checkbox>
+                    <br>
+                    <sui-checkbox formControlName="shuffleAnswers">Desordenar respuestas</sui-checkbox>
+                    <div class="divider"></div>
+                    <sui-select-option *ngFor="let o of setSelect.filteredOptions" [value]="o"></sui-select-option>
+                </div>
+            </sui-multi-select>
+        </span>
     </div>
 </form>

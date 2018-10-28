@@ -10,6 +10,7 @@ import { QuizComponent } from './quiz/quiz.component';
 import { ScoreComponent } from './score/score.component';
 import { QuestionBoxComponent } from './question-box/question-box.component';
 import { AnswerRowComponent } from './answer-row/answer-row.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AnswerRowComponent } from './answer-row/answer-row.component';
     QuizComponent,
     ScoreComponent,
     QuestionBoxComponent,
-    AnswerRowComponent
+    AnswerRowComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

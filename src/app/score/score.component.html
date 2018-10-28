@@ -1,8 +1,8 @@
-<div class="ui mini statistic">
+<div class="ui mini statistic" *ngIf="scoreData">
     <div class="value">
-    {{ correctAnswers/totalAnswered | percent: '1.0' }}
+    {{ scoreData.score/scoreData.answeredQuestions | percent: '1.0' }}
     </div>
     <div class="label">
-        ({{ correctAnswers }}/{{ totalAnswered }})
+        ({{ scoreData.score }}/{{ scoreData.answeredQuestions }})
     </div>
 </div>

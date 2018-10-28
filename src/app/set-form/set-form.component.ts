@@ -15,7 +15,7 @@ import { ApiService } from '../api.service';
   styleUrls: ['./set-form.component.css']
 })
 export class SetFormComponent implements OnInit {
-  @HostBinding('attr.class') cssClass = 'ui segment';
+//  @HostBinding('attr.class') cssClass = 'ui segment';
   @Output() formCompleted: EventEmitter<any>;
 
   quizSetupForm = this.fb.group({

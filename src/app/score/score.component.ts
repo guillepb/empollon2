@@ -11,9 +11,8 @@ import {
   styleUrls: ['./score.component.css']
 })
 export class ScoreComponent implements OnInit {
-  @HostBinding('attr.class') cssClass = 'ui segment right aligned';
-  @Input() totalAnswered: number;
-  @Input() correctAnswers: number;
+//  @HostBinding('attr.class') cssClass = 'ui segment right aligned';
+  @Input() scoreData: any;
 
   constructor() { }
 

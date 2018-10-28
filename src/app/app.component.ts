@@ -10,6 +10,7 @@ export class AppComponent implements OnInit {
   title = 'empollon2';
   questionList: Question[];
   quizSetup: any;
+  scoreData: any;
 
   constructor () {
   }
