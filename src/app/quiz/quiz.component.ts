@@ -56,6 +56,8 @@ export class QuizComponent implements OnChanges {
   }
 
   ngOnChanges() {
+    this.scoreData.score = 0;
+    this.scoreData.answeredQuestions = 0;
     if (this.quizSetup.sets) {
       this.getQuestions(this.quizSetup.sets, this.quizSetup.shuffleQuestions);
     }

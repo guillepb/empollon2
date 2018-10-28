@@ -1,6 +1,5 @@
 import {
   Component,
-  HostBinding,
   EventEmitter,
   Output,
   OnInit
@@ -15,7 +14,6 @@ import { ApiService } from '../api.service';
   styleUrls: ['./set-form.component.css']
 })
 export class SetFormComponent implements OnInit {
-//  @HostBinding('attr.class') cssClass = 'ui segment';
   @Output() formCompleted: EventEmitter<any>;
 
   quizSetupForm = this.fb.group({
@@ -53,7 +51,7 @@ export class SetFormComponent implements OnInit {
           this.quizSetupForm.controls['cluster'].setValue(this.clusterOptions[0]);
           this.showClusterSelect = false;
         } else {
-          this.quizSetupForm.controls['cluster'].reset;
+          this.quizSetupForm.controls['cluster'].reset();
           this.showClusterSelect = true;
         }
       }
@@ -62,7 +60,13 @@ export class SetFormComponent implements OnInit {
     // watch cluster (núcleo) for changes to populate sets (temas)
     this.quizSetupForm.controls['cluster'].valueChanges.subscribe(
       (cluster: FormControl) => {
-        this.apiService.getSetsFromCluster(cluster['id']).subscribe(res => this.setSelectOptions = res);
+        //reset sets (temas)
+        delete this.setSelectOptions;
+        this.quizSetupForm.controls['quizContent'].reset();
+        console.log('reseteo', this.quizSetupForm);
+        if (cluster) {
+          this.apiService.getSetsFromCluster(cluster['id']).subscribe(res => this.setSelectOptions = res);
+        }
       }
     );
 
@@ -70,6 +74,7 @@ export class SetFormComponent implements OnInit {
     this.quizSetupForm.controls['quizContent'].valueChanges.subscribe(
       (formGroup: FormGroup) => {
         this.formCompleted.emit(formGroup);
+        console.log(formGroup);
       }
     );
   }

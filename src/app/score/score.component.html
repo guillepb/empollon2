@@ -1,4 +1,4 @@
-<div class="ui mini statistic" *ngIf="scoreData">
+<div class="ui mini statistic" *ngIf="scoreData && (scoreData.answeredQuestions > 0)">
     <div class="value">
     {{ scoreData.score/scoreData.answeredQuestions | percent: '1.0' }}
     </div>
