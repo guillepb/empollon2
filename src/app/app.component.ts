@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Question } from './question.model';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +7,6 @@ import { Question } from './question.model';
 })
 export class AppComponent implements OnInit {
   title = 'empollon2';
-  questionList: Question[];
   quizSetup: any;
   scoreData: any;
 

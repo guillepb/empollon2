@@ -62,8 +62,7 @@ export class SetFormComponent implements OnInit {
       (cluster: FormControl) => {
         //reset sets (temas)
         delete this.setSelectOptions;
-        this.quizSetupForm.controls['quizContent'].reset();
-        console.log('reseteo', this.quizSetupForm);
+        this.quizSetupForm.get('quizContent.sets').reset();
         if (cluster) {
           this.apiService.getSetsFromCluster(cluster['id']).subscribe(res => this.setSelectOptions = res);
         }
@@ -74,7 +73,6 @@ export class SetFormComponent implements OnInit {
     this.quizSetupForm.controls['quizContent'].valueChanges.subscribe(
       (formGroup: FormGroup) => {
         this.formCompleted.emit(formGroup);
-        console.log(formGroup);
       }
     );
   }
