@@ -1,11 +1,15 @@
-<app-header
-  (formTransmit)="quizSetup = $event"
-  [scoreData]="scoreData">
-</app-header>
-<div>
-  <app-quiz
-    *ngIf="quizSetup"
-    [quizSetup]='quizSetup'
-    (scoreUpdated)='scoreData = $event'>
-  </app-quiz>
+<div class="container">
+  <div class="sticky-header">
+    <app-header
+      (formTransmit)="quizSetup = $event"
+      [scoreData]="scoreData">
+    </app-header>
+  </div>
+  <div>
+    <app-quiz
+      *ngIf="quizSetup"
+      [quizSetup]='quizSetup'
+      (scoreUpdated)='scoreData = $event'>
+    </app-quiz>
+  </div>
 </div>
