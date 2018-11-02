@@ -5,7 +5,7 @@ export class Answer {
     ) {}
 
     static mapFromApi(array: Array<Object>): Answer[] {
-        return array.map(obj => new Answer(obj['texto'], obj['correcta']));
+        return array.map(obj => new Answer(obj['texto'], obj['es_correcta']));
     }
 
 }

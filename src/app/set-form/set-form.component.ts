@@ -25,7 +25,7 @@ export class SetFormComponent implements OnInit {
       shuffleQuestions: true
     })
   });
-  
+
   facilityOptions: any[];
   clusterOptions: any[];
   setSelectOptions: any[];
@@ -40,6 +40,7 @@ export class SetFormComponent implements OnInit {
     // get facilities (and embedded clusters) from api
     this.apiService.getFacs().subscribe(res => {
       this.facilityOptions = res;
+      console.log(this.facilityOptions);
     });
 
     // watch facility for changes to populate clusters (núcleos)
@@ -56,15 +57,18 @@ export class SetFormComponent implements OnInit {
         }
       }
     );
-    
+
     // watch cluster (núcleo) for changes to populate sets (temas)
     this.quizSetupForm.controls['cluster'].valueChanges.subscribe(
       (cluster: FormControl) => {
-        //reset sets (temas)
+        // reset sets (temas)
         delete this.setSelectOptions;
         this.quizSetupForm.get('quizContent.sets').reset();
         if (cluster) {
-          this.apiService.getSetsFromCluster(cluster['id']).subscribe(res => this.setSelectOptions = res);
+          this.apiService.getSetsFromCluster(cluster['id']).subscribe(res => {
+            this.setSelectOptions = res;
+            console.log(this.setSelectOptions);
+          });
         }
       }
     );

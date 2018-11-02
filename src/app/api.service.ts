@@ -19,7 +19,7 @@ export class ApiService {
       this.apiUrl,
       'tema',
       set,
-      'preguntas?_embed=respuestas'
+      'preguntas'
     ].join('/');
     return this.http.get<Question[]>(url).pipe(map(res => Question.mapFromApi(res)));
   }
@@ -27,7 +27,7 @@ export class ApiService {
   getFacs(): Observable<any[]> {
     const url: string = [
       this.apiUrl,
-      'dependencias?_embed=nucleos',
+      'dependencias',
     ].join('/');
     return this.http.get<any[]>(url);
   }
@@ -37,8 +37,8 @@ export class ApiService {
       this.apiUrl,
       'nucleo',
       cluster,
-      'temasnucleos?_expand=tema'
+      'temas'
     ].join('/');
-    return this.http.get<any[]>(url).pipe(map(res => res.map(item => item['tema'])));
+    return this.http.get<any[]>(url);
   }
 }
