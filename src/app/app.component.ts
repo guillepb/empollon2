@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
     // Load the Spanish translations into the Localization Service.
     localizationService.load('es', es);
 
+    // Change default text to temas instead of "Seleccionados".
     localizationService.patch('es', {
       select: {
           multi: {
