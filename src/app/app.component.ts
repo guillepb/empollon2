@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SuiLocalizationService } from 'ng2-semantic-ui';
+import es from 'ng2-semantic-ui/locales/es';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +12,20 @@ export class AppComponent implements OnInit {
   quizSetup: any;
   scoreData: any;
 
-  constructor () {
+  constructor (public localizationService: SuiLocalizationService) {
+    // Load the Spanish translations into the Localization Service.
+    localizationService.load('es', es);
+
+    localizationService.patch('es', {
+      select: {
+          multi: {
+            selectedMessage: '#{count} temas'
+          }
+      }
+    });
+
+    // Set the current language to Spanish.
+    localizationService.setLanguage('es');
   }
 
   ngOnInit() {
